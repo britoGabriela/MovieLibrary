@@ -7,7 +7,7 @@ import 'package:proj_estudos2/repositories/movies_repository_imp.dart';
 import 'package:proj_estudos2/services/dio_service_imp.dart';
 import 'package:proj_estudos2/widgets/custom_bottom_navigationbar_widget.dart';
 import 'package:proj_estudos2/widgets/custom_carousel_widget.dart';
-import 'package:proj_estudos2/widgets/custom_home_titles_widget.dart';
+import 'package:proj_estudos2/widgets/custom_titles_widget.dart';
 import 'package:proj_estudos2/widgets/custom_movie_list_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: size.height * .22,
+              height: size.height * .20,
               child: ValueListenableBuilder<Movies?>(
                 valueListenable: _controller.movies,
                 builder: (_, movies, __) {
@@ -44,11 +44,12 @@ class _HomePageState extends State<HomePage> {
                     visible: movies != null,
                     child: Container(
                       alignment: Alignment.center,
-                      padding: const EdgeInsets.only(top: 65),
+                      padding: const EdgeInsets.only(top: 60),
                       child: Column(
                         children: [
-                          const CustomHomeTitlesWidget(
-                            title: 'Movies',
+                          const CustomTitlesWidget(
+                            alignment: Alignment.center,
+                            title: 'STRING',
                             fontSize: 35,
                             fontWeight: FontWeight.w600,
                           ),
@@ -56,17 +57,17 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              CustomHomeTitlesWidget(
+                              CustomTitlesWidget(
                                 onTap: () {},
                                 title: 'Todos',
                                 fontSize: 16,
                               ),
-                              CustomHomeTitlesWidget(
+                              CustomTitlesWidget(
                                 onTap: () {},
                                 title: 'Filmes',
                                 fontSize: 16,
                               ),
-                              CustomHomeTitlesWidget(
+                              CustomTitlesWidget(
                                 onTap: () {},
                                 title: 'Séries',
                                 fontSize: 16,
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const Spacer(),
             SizedBox(
-              height: size.height * .68,
+              height: size.height * .71,
               child: SingleChildScrollView(
                 child: ValueListenableBuilder<Movies?>(
                   valueListenable: _controller.movies,
@@ -154,11 +155,11 @@ class _HomePageState extends State<HomePage> {
                                   )
                                 ],
                               ),
-                              const CustomHomeTitlesWidget(
+                              const CustomTitlesWidget(
                                 padding: EdgeInsets.only(
-                                    left: 24, top: 32, bottom: 15),
+                                    left: 15, top: 28, bottom: 8),
                                 title: 'Em alta',
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomCarouselWidget(
@@ -172,11 +173,11 @@ class _HomePageState extends State<HomePage> {
                                   );
                                 },
                               ),
-                              const CustomHomeTitlesWidget(
+                              const CustomTitlesWidget(
                                 padding: EdgeInsets.only(
-                                    left: 24, top: 24, bottom: 15),
+                                    left: 15, top: 24, bottom: 8),
                                 title: 'Lançamentos',
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomCarouselWidget(
@@ -191,11 +192,11 @@ class _HomePageState extends State<HomePage> {
                                   );
                                 },
                               ),
-                              const CustomHomeTitlesWidget(
+                              const CustomTitlesWidget(
                                 padding: EdgeInsets.only(
-                                    left: 24, top: 24, bottom: 15),
+                                    left: 15, top: 24, bottom: 8),
                                 title: 'Sugestões',
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomCarouselWidget(
@@ -210,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                                   );
                                 },
                               ),
-                              const SizedBox(height: 15),
+                              const SizedBox(height: 30),
                             ],
                           )
                         : Center(child: Lottie.asset('assets/lottie.json'));
@@ -223,7 +224,7 @@ class _HomePageState extends State<HomePage> {
               builder: (_, movies, __) {
                 return Visibility(
                   visible: movies != null,
-                  child: CustomBottomNavigationBarWidget(),
+                  child: const CustomBottomNavigationBarWidget(),
                 );
               },
             )
